@@ -21,13 +21,10 @@ public class LoginMain {
 		boolean check=true;
 		try {
 			login(joinUsers, new User(id, password));
-		} catch (UserNotFoundException e) {
+		} catch (UserNotFoundException |PasswordDismatchException e) {
 			System.out.println(e);
 			check=false;
-		} catch (PasswordDismatchException e) {
-			System.out.println(e);
-			check=false;
-		}finally {
+		} finally {
 			if(check)
 				System.out.println("로그인 성공");
 		}
